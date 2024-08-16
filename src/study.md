@@ -16,6 +16,7 @@
 
 - BlogService 클래스 : 요청에 따라 CRUD 등의 요청 처리
   - @Service 가 있는 해당 클래스는 빈으로 서블릿 컨테이너에 등록됨
+  - findById() 메서드 : JPA의 findById()가 사용됨. 이는 Optional 형태라서 단순히 article을 리턴하면 안됨
 
 - BlogApiController
   - @RestController : HTTP 응답 바디에 있는 자바 객체 데이터를 JSON 형태로 바꿔줄 수 있는
@@ -29,6 +30,8 @@
     - 응답용 객체 : ArticleResponse // 이를 body에 담아 클라이언트에 전송
     - **stream** : 여러 데이터가 모여 있는 컬렉션을 간편하게 처리해줌
   
+  - findArticle() 메서드의 @PathVariable
+    - URL에서 값을 가져오는 에너테이션. 여기 코드에서 {id} 값을 가져온다
   
 - BlogApiControllerTest 클래스
   - @AutoConfigureMockMvc : MockMvc 생성하고 이를 자동으로 구성
