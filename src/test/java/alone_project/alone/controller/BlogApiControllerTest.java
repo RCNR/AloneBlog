@@ -19,7 +19,9 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -71,5 +73,37 @@ class BlogApiControllerTest {
         assertThat(articles.get(0).getTitle()).isEqualTo(title); // 첫번째 제목이 title과 같은지 확인
         assertThat(articles.get(0).getContent()).isEqualTo(content);
         assertThat(articles.get(0).getTitle()).contains("title");
+    }
+
+    @DisplayName("블로그 글 목록 조회 : findAllArticles")
+    @Test
+    public void findAllArticles() throws Exception {
+
+        // given - 블로그 글 저장
+        final String url = "/api/articles";
+
+        final String title_1 = "title_1입니다";
+        final String content_1 = "content_1입니다";
+        final String title_2 = "title_2입니다";
+        final String content_2 = "content_2입니다";
+
+        blogRepository.save(Article.builder()
+                .title(title_1)
+                .content(content_1)
+                .build());
+        blogRepository.save(Article.builder()
+                .title(title_2)
+                .content(content_2)
+                .build());
+
+        // when - 리스트 조회 API 호출
+        final ResultActions result = mockMvc.perform(get(url).
+                accept(MediaType.APPLICATION_JSON));
+
+        // then = 응답코드 200, 반환받은 값 중 0번째 요소의 content 및 title이 저장된 값과 같은지
+        result
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[1].content").value(content_2))
+                .andExpect(jsonPath("$[1].title").value(title_2));
     }
 }
