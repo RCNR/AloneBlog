@@ -100,7 +100,7 @@ class BlogApiControllerTest {
         final ResultActions result = mockMvc.perform(get(url).
                 accept(MediaType.APPLICATION_JSON));
 
-        // then = 응답코드 200, 반환받은 값 중 0번째 요소의 content 및 title이 저장된 값과 같은지
+        // then = 응답코드 200, 반환받은 값 중 1번째 요소의 content 및 title이 저장된 값과 같은지
         result
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[1].content").value(content_2))
