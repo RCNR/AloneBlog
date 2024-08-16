@@ -1,18 +1,17 @@
 spring:
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/alone
-    username: sa
-    password: 123
-    driver-class-name: org.h2.Driver
-
   jpa:
-    hibernate:
+    # 전송 쿼리 확인
+    show-sql: true
     properties:
-      ddl-auto: create
       hibernate:
         format_sql: true
-        show_sql: true
 
-logging.level:
-  org.hibernate.SQL: debug
-  org.hibernate.orm.jdbc.bind: trace
+    # 테이블 생성 후에 data.sql 실행
+    defer-datasource-initialization: true
+
+  datasource:
+    url: jdbc:h2:mem:alone
+    username: sa
+  h2:
+    console:
+      enabled: true

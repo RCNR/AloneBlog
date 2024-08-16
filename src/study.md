@@ -24,6 +24,12 @@
   - 반환값으로 ResponseEntity<> 가 되면서 요청 값이 생성되었고 save된 article 정보를 응답 객체에 담아 전송됨
     - 201 -> Created
   
+  - @GetMapping("/api/articles") 에 관하여
+    - 블로그 리스트 전체 조회 -> 목록 조회 및 응답 역할의 dto 사용(ArticleResponse)
+    - 응답용 객체 : ArticleResponse // 이를 body에 담아 클라이언트에 전송
+    - **stream** : 여러 데이터가 모여 있는 컬렉션을 간편하게 처리해줌
+  
+  
 - BlogApiControllerTest 클래스
   - @AutoConfigureMockMvc : MockMvc 생성하고 이를 자동으로 구성
     - MockMvc : 애플리케이션 서버에 배포하지 않고도 테스트용 MVC 환경을 만들 수 있는 -> 컨트롤러 테스트 용
@@ -35,3 +41,4 @@
     - 설정 내용을 바탕으로 요청 전송
     - RequestBody는 JSON 형태의 String임
     - ResultActions 객체로 응답의 상태 코드, 바디, 헤더 등을 알 수 있음
+

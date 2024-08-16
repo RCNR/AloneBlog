@@ -6,6 +6,8 @@ import alone_project.alone.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor // final
 public class BlogService {
@@ -15,5 +17,9 @@ public class BlogService {
     // dto 사용해서 레포지토리에 Article 저장
     public Article save(AddArticleRequest request) {
         return blogRepository.save(request.buildEntity());
+    }
+
+    public List<Article> findAll() {
+        return blogRepository.findAll();
     }
 }
