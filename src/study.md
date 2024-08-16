@@ -42,3 +42,6 @@
     - RequestBody는 JSON 형태의 String임
     - ResultActions 객체로 응답의 상태 코드, 바디, 헤더 등을 알 수 있음
 
+  - jsonPath() : JSON 구조에서 특정 요소 선택 또는 필터링 위해 사용하는 경로 표현식 -> mvc에서 JSON 응답 검증할 때
+    - '$[]' : '$'는 json 경로를 의미 path 표현식은 $로 시작, [] : 인덱스
+
