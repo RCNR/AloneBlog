@@ -3,6 +3,7 @@ package alone_project.alone.controller;
 import alone_project.alone.domain.Article;
 import alone_project.alone.dto.AddArticleRequest;
 import alone_project.alone.dto.ArticleResponse;
+import alone_project.alone.dto.UpdateArticleRequest;
 import alone_project.alone.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -50,5 +51,14 @@ public class BlogApiController {
         blogService.delete(id);
 
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id,
+                                                 @RequestBody UpdateArticleRequest request) {
+
+        Article updateArticle = blogService.update(id, request);
+
+        return ResponseEntity.ok().body(updateArticle);
     }
 }

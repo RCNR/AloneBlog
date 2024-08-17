@@ -2,9 +2,11 @@ package alone_project.alone.service;
 
 import alone_project.alone.domain.Article;
 import alone_project.alone.dto.AddArticleRequest;
+import alone_project.alone.dto.UpdateArticleRequest;
 import alone_project.alone.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,5 +33,14 @@ public class BlogService {
 
     public void delete(long id) {
         blogRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Article update(long id, UpdateArticleRequest request) {
+        Article article = blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+
+        article.update(request.getTitle(), request.getContent());
+        return article;
     }
 }

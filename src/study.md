@@ -18,6 +18,12 @@
   - @Service 가 있는 해당 클래스는 빈으로 서블릿 컨테이너에 등록됨
   - findById() 메서드 : JPA의 findById()가 사용됨. 이는 Optional 형태라서 단순히 article을 리턴하면 안됨
 
+  - update() 메서드에서 @Transactional을 사용한 이유 :
+    - 트랜잭션 : DB에서 데이터 바꾸기 위한 작업 단위
+    - DB 작업이 하나의 트랜잭션으로 처리되는데, 메서드 실행 중 오류 발생하면 **롤백**이 되어 데이터 유지 가능
+    - 트랜잭션 안에서 처리가 성공적으로 완료되면 커밋이 되게 -> 일종의 경계 / 이게 없어서 db 작업이 실패하게 되면 데이터 부분적 업데이트 상황 발생 가능함
+    - 트랜잭션 시작, 종료 관리 // 오류 발생 -> 롤백
+  
 - BlogApiController
   - @RestController : HTTP 응답 바디에 있는 자바 객체 데이터를 JSON 형태로 바꿔줄 수 있는
   - ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request)
@@ -32,6 +38,9 @@
   
   - findArticle() 메서드의 @PathVariable
     - URL에서 값을 가져오는 에너테이션. 여기 코드에서 {id} 값을 가져온다
+
+  - updateArticle() 메서드에서의 @PutMapping()
+    - PUT(update) 요청이 오면 그 요청의 Request body 정보가 reqeust로 넘어옴 -> 이후 서비스이 update() 실행
   
 - BlogApiControllerTest 클래스
   - @AutoConfigureMockMvc : MockMvc 생성하고 이를 자동으로 구성

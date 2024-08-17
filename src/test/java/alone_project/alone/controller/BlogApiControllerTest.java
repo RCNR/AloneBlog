@@ -2,6 +2,7 @@ package alone_project.alone.controller;
 
 import alone_project.alone.domain.Article;
 import alone_project.alone.dto.AddArticleRequest;
+import alone_project.alone.dto.UpdateArticleRequest;
 import alone_project.alone.repository.BlogRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +40,7 @@ class BlogApiControllerTest {
     @Autowired
     BlogRepository blogRepository;
 
-    @BeforeEach
+    @BeforeEach // test 시작 전 다 삭제하기
     public void mockMvcSet() { // MockMvc 설정
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         blogRepository.deleteAll();
@@ -151,5 +152,40 @@ class BlogApiControllerTest {
         List<Article> articles = blogRepository.findAll();
 
         assertThat(articles).isEmpty();
+    }
+
+    @DisplayName("블로그 글 수정 : updateArticle")
+    @Test
+    public void updateArticle() throws Exception{
+
+        // given
+        final String url = "/api/articles/{id}";
+        final String title = "title입니다";
+        final String content = "content입니다";
+
+        Article savedArticle = blogRepository.save(Article.builder()
+                .title(title)
+                .content(content)
+                .build());
+
+        // 새로운 title, content 생성
+        final String newTitle = "newTitle입니다.";
+        final String newContent = "newContent입니다.";
+
+        final UpdateArticleRequest request = new UpdateArticleRequest(newTitle, newContent);
+        final String requestBody = objectMapper.writeValueAsString(request);
+
+        // when
+        ResultActions result = mockMvc.perform(put(url, savedArticle.getId())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody));
+
+        // then
+        result.andExpect(status().isOk());
+
+        Article article = blogRepository.findById(savedArticle.getId()).get();
+
+        assertThat(article.getTitle()).isEqualTo(newTitle);
+        assertThat(article.getContent()).isEqualTo(newContent);
     }
 }
