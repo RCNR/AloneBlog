@@ -28,4 +28,8 @@ public class BlogService {
         Optional<Article> article = blogRepository.findById(id);
         return article.orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
+
+    public void delete(long id) {
+        blogRepository.deleteById(id);
+    }
 }
