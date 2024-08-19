@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -57,24 +57,35 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
 
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="../static/post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
-                        </p>
+                    <!-- blog-container-->
+                    <div class="blog-container">
+<!--                        <a href="../static/post.html">-->
+<!--                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>-->
+<!--                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>-->
+<!--                        </a>-->
+<!--                        <p class="post-meta">-->
+<!--                            Posted by-->
+<!--                            <a href="#!">Start Bootstrap</a>-->
+<!--                            on September 24, 2023-->
+<!--                        </p>-->
+                        <div class="row-cols-1" th:each="item : ${articles}"> <!--article 개수만큼-->
+                            <div class="card">
+                                <div class="card-header" th:text="${item.id} + '번 글'"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${item.title}"></h5>
+                                    <p class="card-text" th:text="${item.content}"></p>
+                                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
                     </div>
 
                     <!-- Divider-->
                     <hr class="my-4" />
 
-                    <!-- Post preview-->
-                    <div class="post-preview">
+                    <!-- blog-container-->
+                    <div class="blog-container">
                         <a href="../static/post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
                         <p class="post-meta">
                             Posted by
@@ -87,7 +98,7 @@
                     <hr class="my-4" />
 
                     <!-- Post preview-->
-                    <div class="post-preview">
+                    <div class="blog-container">
                         <a href="../static/post.html">
                             <h2 class="post-title">Science has not yet mastered prophecy</h2>
                             <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
@@ -103,7 +114,7 @@
                     <hr class="my-4" />
 
                     <!-- Post preview-->
-                    <div class="post-preview">
+                    <div class="blog-container">
                         <a href="../static/post.html">
                             <h2 class="post-title">Failure is not an option</h2>
                             <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
