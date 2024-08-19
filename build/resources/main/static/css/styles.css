@@ -10766,33 +10766,33 @@ header.masthead .post-heading .meta a {
   text-align: center;
 }
 
-.post-preview > a {
+.blog-container > a {
   color: #212529;
 }
-.post-preview > a:focus, .post-preview > a:hover {
+.blog-container > a:focus, .blog-container > a:hover {
   text-decoration: none;
   color: #0085A1;
 }
-.post-preview > a > .post-title {
+.blog-container > a > .post-title {
   font-size: 1.875rem;
   margin-top: 1.875rem;
   margin-bottom: 0.625rem;
 }
-.post-preview > a > .post-subtitle {
+.blog-container > a > .post-subtitle {
   font-weight: 300;
   margin-bottom: 0.625rem;
 }
-.post-preview > .post-meta {
+.blog-container > .post-meta {
   font-size: 1.125rem;
   font-style: italic;
   margin-top: 0;
   color: #6c757d;
 }
-.post-preview > .post-meta > a {
+.blog-container > .post-meta > a {
   text-decoration: none;
 }
 @media (min-width: 992px) {
-  .post-preview > a > .post-title {
+  .blog-container > a > .post-title {
     font-size: 2.25rem;
   }
 }
