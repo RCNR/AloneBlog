@@ -57,3 +57,8 @@
   - jsonPath() : JSON 구조에서 특정 요소 선택 또는 필터링 위해 사용하는 경로 표현식 -> mvc에서 JSON 응답 검증할 때
     - '$[]' : '$'는 json 경로를 의미 path 표현식은 $로 시작, [] : 인덱스
 
+
+- ArticleListViewResponse (DTO 객체)
+  - 앞까지는 API를 위한 컨트롤러
+  - 이제 사용자에게 View를 보여줘야함
+  - View에게 데이터 전달하기 위한 객체임
