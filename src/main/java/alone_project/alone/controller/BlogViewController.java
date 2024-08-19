@@ -24,6 +24,6 @@ public class BlogViewController {
 
         model.addAttribute("articles", articles);
 
-        return "articleList";
+        return "articleList"; // .html
     }
 }
