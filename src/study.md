@@ -62,3 +62,9 @@
   - 앞까지는 API를 위한 컨트롤러
   - 이제 사용자에게 View를 보여줘야함
   - View에게 데이터 전달하기 위한 객체임
+
+- BlogViewController
+  - getArticles() 메서드
+    - blogService에서 articles 찾음(findAll), 이를 Stream<Article> 형태로 변환(더 기능적임)
+      - Article에 대해 ArticleListViewResponse 매핑하게 됨 (Stream<ArticleListviewResponse>)
+        -> 이를 다시 List 형태로 변환
