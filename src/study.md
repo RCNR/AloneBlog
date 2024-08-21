@@ -68,3 +68,9 @@
     - blogService에서 articles 찾음(findAll), 이를 Stream<Article> 형태로 변환(더 기능적임)
       - Article에 대해 ArticleListViewResponse 매핑하게 됨 (Stream<ArticleListviewResponse>)
         -> 이를 다시 List 형태로 변환
+
+
+- Article 클래스에서 EntityListeners() 어노테이션 추가 부분
+  - Article 엔티티의 생성 및 수정 시간 추가 -> 블로그 글 언제 생성 되었는지 뷰에서 확인할 수 있게끔
+  - 이로 인해 createdTime, updatedTime 필드 생성 -> 각 @CreatedDate, @LastModifiedDate 사용 -> 이에 맞는 column까지
+  - @EntityListeners(AuditingEntityListener.class)은 생성 및 수정 시간을 자동으로 감시 및 기록
