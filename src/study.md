@@ -74,3 +74,9 @@
   - Article 엔티티의 생성 및 수정 시간 추가 -> 블로그 글 언제 생성 되었는지 뷰에서 확인할 수 있게끔
   - 이로 인해 createdTime, updatedTime 필드 생성 -> 각 @CreatedDate, @LastModifiedDate 사용 -> 이에 맞는 column까지
   - @EntityListeners(AuditingEntityListener.class)은 생성 및 수정 시간을 자동으로 감시 및 기록
+
+- ArticleList.html
+  - <a th:href="@{/articles/{id}(id=${item.id})}"
+    class="btn btn-primary">자세히 보기</a>
+    - href을 타임리프의 th:href로 변경 및 @{}의 URL 표현식을 사용해 '자세히 보기' 클릭시 주소를 articles/{item.id}로 변경
+      - 이는 글의 상세화면으로 이동
