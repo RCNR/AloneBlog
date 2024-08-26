@@ -80,3 +80,12 @@
     class="btn btn-primary">자세히 보기</a>
     - href을 타임리프의 th:href로 변경 및 @{}의 URL 표현식을 사용해 '자세히 보기' 클릭시 주소를 articles/{item.id}로 변경
       - 이는 글의 상세화면으로 이동
+
+- Article.html
+  - th:text="|Posted on
+    ${#temporals.format(article.createdTime, 'yyyy-MM-dd HH:mm')}|">게시한 날짜 정보 표시란
+    - ${#temporals.format(article.createdTime, 'yyyy-MM-dd HH:mm')}|"
+      => yyyy~~mm 으로 포매팅
+    - | |  => 리터럴(literals).. 타임리프에서 리터럴은 작은따옴표로 감싸야함
+      - 이때 리터럴(Posted on)과 변수를 같이 사용하면 | |에 담아 편리하게 사용함
+      - "'abc ' + ${data}" => 이런 식으로 + 를 사용해 할 수도 있지만 위의 방법보단 불편함
