@@ -61,6 +61,10 @@
                             <div class="text-muted fst-normal mb-2" th:text="|Posted on
                             ${#temporals.format(article.createdTime, 'yyyy-MM-dd HH:mm')}|">게시한 날짜 정보 표시란</div>
                         </header>
+
+                        <section class="mb-5">
+                            <p class="fs-4 mb-4" th:text="${article.content}">글 내용</p>
+                        </section>
                     </article>
                 </div>
             </div>
