@@ -58,7 +58,8 @@
                     <article>
                         <header class="mb-4">
                             <h1 class="fw-bolder mb-1" th:text="${article.title}">제목</h1>
-
+                            <div class="text-muted fst-normal mb-2" th:text="|Posted on
+                            ${#temporals.format(article.createdTime, 'yyyy-MM-dd HH:mm')}|">게시한 날짜 정보 표시란</div>
                         </header>
                     </article>
                 </div>
