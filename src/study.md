@@ -98,6 +98,9 @@
 
 - Article.js
   - 'delete' 버튼이 실행되면 fetch() 메서드를 통해 DELETE 요청을 보내게 되어 BlogApiController의 @DeleteMapping이 실행된다.
+  - '수정' 하는 부분에 있어서 정리
+    - id값이 modify-btn인 엘리먼트를 찾고 이 엘리먼트에서 click 발생하면 id가 title, content인 값을 가져와
+      fetch()를 통해 수정 API로 put 요청된다.
 
 - newArticle.html
   - 새로운 글을 생성하는 뷰이자 수정하는 뷰
