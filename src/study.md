@@ -98,3 +98,9 @@
 
 - Article.js
   - 'delete' 버튼이 실행되면 fetch() 메서드를 통해 DELETE 요청을 보내게 되어 BlogApiController의 @DeleteMapping이 실행된다.
+
+- newArticle.html
+  - 새로운 글을 생성하는 뷰이자 수정하는 뷰
+  - id 값은 th:value로 글의 id를 저장한다
+    - id 값을 이용해 id 값이 존재하면 수정으로, null이면 생성으로 인식
+  - 
