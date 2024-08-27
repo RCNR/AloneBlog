@@ -21,11 +21,11 @@ if (deleteButton) {
 
 
 // 생성
-const modifyButton = document.getElementById("create-btn");
+const createButton = document.getElementById("create-btn");
 
-if (modifyButton) {
+if (createButton) {
 
-    modifyButton.addEventListener("click", (event) => {
+    createButton.addEventListener("click", (event) => {
         fetch("/api/articles", {
             method: "POST",
             headers: {
@@ -51,7 +51,7 @@ if (modifyButton) {
         let params = new URLSearchParams(location.search);
         let id = params.get('id');
 
-        fetch(`api/articles/${id}`, {
+        fetch(`/api/articles/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -62,7 +62,7 @@ if (modifyButton) {
             })
         }).then(() => {
             alert("글 수정이 완료되었습니다.");
-            location.replace(`articles/${id}`)
+            location.replace(`/articles/${id}`)
         });
     })
 }
