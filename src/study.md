@@ -69,6 +69,12 @@
       - Article에 대해 ArticleListViewResponse 매핑하게 됨 (Stream<ArticleListviewResponse>)
         -> 이를 다시 List 형태로 변환
 
+  - newArticle() 메서드
+    - 이 메서드 안에는 2개의 경우가 있음 (1. 새로운 글 생성, 2. 기존 글 수정)
+    - 생성은 url에 별도의 파라미터 값이 없지만, 수정은 그 글의 id를 쿼리 파라미터에 추가해 요청하게 됨(ex. ?id=1)
+      - 쿼리 파라미터가 있으면 그것은 수정을 의미 -> 기존 article을 조회, 기존 데이터를 모델에 넣어 보여지는 순으로 가야함
+    - 쿼리 파라미터의 id 여부에 따라 **뷰에서는** 생성 or 수정 중 적절한 버튼을 보여줘야 함
+
 
 - Article 클래스에서 EntityListeners() 어노테이션 추가 부분
   - Article 엔티티의 생성 및 수정 시간 추가 -> 블로그 글 언제 생성 되었는지 뷰에서 확인할 수 있게끔
