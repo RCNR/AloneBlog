@@ -89,3 +89,6 @@
     - | |  => 리터럴(literals).. 타임리프에서 리터럴은 작은따옴표로 감싸야함
       - 이때 리터럴(Posted on)과 변수를 같이 사용하면 | |에 담아 편리하게 사용함
       - "'abc ' + ${data}" => 이런 식으로 + 를 사용해 할 수도 있지만 위의 방법보단 불편함
+
+- Article.js
+  - 'delete' 버튼이 실행되면 fetch() 메서드를 통해 DELETE 요청을 보내게 되어 BlogApiController의 @DeleteMapping이 실행된다.
