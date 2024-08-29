@@ -1,1 +1,7 @@
 ## 나홀로 블로그 만들기(로그인X, 부트스트랩 사용)
+![screencapture-localhost-8080-articles-2024-08-29-16_38_46](https://github.com/user-attachments/assets/8208b34d-9a9a-48f6-ad74-db0ccb709fef)
+![image](https://github.com/user-attachments/assets/739b90ef-9e26-40ce-b00a-15aa4063a620)
+![image](https://github.com/user-attachments/assets/b20c2fc4-58d4-4296-9015-7670d8caab88)
+![image](https://github.com/user-attachments/assets/8bc05a2c-6be0-4157-97ee-d98e9cfded6c)
+![image](https://github.com/user-attachments/assets/3b35a330-3f7b-4726-b7a7-4e931924ec22)
+![image](https://github.com/user-attachments/assets/5c678653-b214-4eac-a082-d73afa15fc13)
